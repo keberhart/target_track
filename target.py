@@ -18,12 +18,13 @@ class Target():
         # load the planetary positions and our position
         self.planets = load('de421.bsp')
         self.earth = self.planets['earth']
-        self.Cas_A = Star(ra_hours=(23, 23, 24.00),
-                           dec_degrees=(58, 48, 54.00))
+        self.Cas_A = Star(ra_hours=(23, 23, 5.00),
+                           dec_degrees=(58, 46, 0.00),
+                           epoch=1992.5)
 
-        self.sources = {"Cas_A":self.Cas_A,
-                        "Sun":self.planets['sun'],
-                        "Moon":self.planets['moon']}
+        self.sources = {"CAS_A":self.Cas_A,
+                        "SUN":self.planets['sun'],
+                        "MOON":self.planets['moon']}
 
     def get_list(self):
         return list(self.sources)
