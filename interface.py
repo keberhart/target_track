@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 from consolemenu import SelectionMenu
-from antenna import Antenna
-from target import Target
+from libs.antenna  import Antenna
+from libs.target import  Target
 import sys
 
 class Interface():
