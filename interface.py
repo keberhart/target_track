@@ -31,8 +31,9 @@ class Interface():
         target_name = target_list[selection]
 
         self.system.ready(sys_name)
-        self.target.ready(target_name)
+        self.target.select_target(target_name)
         self.target.ready_antenna(self.system.lat, self.system.lon, self.system.alt)
+        self.target.create_track()
         self.target.generate_report()
 
         if self.target.rise_time is None:
@@ -44,7 +45,10 @@ class Interface():
             print(output)
             output = " The report ends or "+target_name+" fades at "+self.target.fade_time+"\n\n"
             print(output)
-            filename = "/home/scheduler/Desktop/"+sys_name+"_"+target_name+".orb"
+            name_list = sys_name.split()
+            name_list.append(target_name)
+            name_list.append('.orb')
+            filename = "_".join(name_list)
             output = " Saving INP file to "+filename+"\n\n"
             print(output)
             with open(filename, 'w') as f:
